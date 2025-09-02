@@ -182,7 +182,7 @@ export const useProducts = () => {
   // Carregar produtos na inicialização
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [fetchProducts]);
 
   // Mudar página
   const goToPage = (page) => {
