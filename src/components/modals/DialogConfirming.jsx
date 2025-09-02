@@ -51,7 +51,7 @@ export default function DialogConfirming({
 
         {/* Corpo */}
         <div className="mb-6">
-          <p className="text-gray-700 text-sm leading-relaxed text-center">
+          <p className="text-gray-700 text-sm leading-relaxed text-center break-all break-words">
             {text}
           </p>
         </div>

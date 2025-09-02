@@ -193,31 +193,9 @@ export default function PainelProdutorTemplate() {
                   {filteredProducts.map((product) => (
                     <Card key={product.id} className="hover:shadow-lg transition-shadow">
                       <CardHeader className="pb-3">
-                        <div className="flex justify-between items-start">
-                          <CardTitle className="text-lg font-semibold truncate">
-                            {product.name}
-                          </CardTitle>
-                          <div className="flex gap-1 ml-2">
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              onClick={() => {
-                                setSelectedProduct(product);
-                                setShowEditModal(true);
-                              }}
-                            >
-                              <Edit className="w-4 h-4" />
-                            </Button>
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              onClick={() => handleDeleteClick(product)}
-                              className="text-red-600 hover:text-red-700 hover:bg-red-50"
-                            >
-                              <Trash2 className="w-4 h-4" />
-                            </Button>
-                          </div>
-                        </div>
+                        <CardTitle className="text-lg font-semibold leading-tight break-words break-all max-w-full">
+                          {product.name}
+                        </CardTitle>
                       </CardHeader>
                       <CardContent>
                       {/* Placeholder para imagem - Funcionalidade será implementada futuramente */}
@@ -239,8 +217,30 @@ export default function PainelProdutorTemplate() {
                           R$ {product.price?.toFixed(2)}
                         </span>
                       </div>
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-gray-500 mb-4">
                         Estoque: {product.stock} unidades
+                      </div>
+                      
+                      {/* Botões de ação movidos para baixo */}
+                      <div className="flex gap-2 justify-end pt-2 border-t border-gray-100">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => {
+                            setSelectedProduct(product);
+                            setShowEditModal(true);
+                          }}
+                        >
+                          <Edit className="w-4 h-4" />
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleDeleteClick(product)}
+                          className="text-red-600 hover:text-red-700 hover:bg-red-50"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </Button>
                       </div>
                     </CardContent>
                     </Card>
