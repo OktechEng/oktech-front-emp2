@@ -381,7 +381,7 @@ export default function ProdutoModal({ isOpen, onClose, onSuccess, mode = 'creat
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="bg-orange-500 hover:bg-orange-600"
+              className="bg-green-500 hover:bg-green-600"
             >
               {isSubmitting ? modalConfig.submitButtonLoadingText : modalConfig.submitButtonText}
             </Button>

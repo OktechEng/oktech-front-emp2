@@ -23,7 +23,7 @@ export default function Enderecos() {
   const handleAddAddress = async (addressData) => {
     try {
       await addAddress(addressData);
-      setShowForm(false);
+      setShowForm(false); // Isso agora fechará o modal
       toast.success('Endereço adicionado com sucesso!', {
         position: "top-right",
         autoClose: 3000,
@@ -96,6 +96,7 @@ export default function Enderecos() {
           {!showForm && (
             <Button
               onClick={() => setShowForm(true)}
+              className="bg-green-500 hover:bg-green-600"
             >
               Adicionar Endereço
             </Button>
@@ -114,17 +115,6 @@ export default function Enderecos() {
           </div>
         )}
 
-        {showForm && (
-          <div className="bg-white p-6 border border-gray-200 rounded-lg">
-            <h3 className="text-lg font-semibold mb-4">Adicionar Novo Endereço</h3>
-            <EnderecoForm
-              onSubmit={handleAddAddress}
-              onCancel={() => setShowForm(false)}
-              submitting={submitting}
-            />
-          </div>
-        )}
-
         <div className="space-y-4">
           {addresses.length === 0 ? (
             <div className="text-center py-8">
@@ -133,7 +123,7 @@ export default function Enderecos() {
                 <Button
                   variant="link"
                   onClick={() => setShowForm(true)}
-                  className="mt-4"
+                  className="mt-4 text-green-500 hover:text-green-600"
                 >
                   Adicionar seu primeiro endereço
                 </Button>
@@ -170,6 +160,14 @@ export default function Enderecos() {
           )}
         </div>
       </div>
+      
+      {/* Modal de Endereço */}
+      <EnderecoForm
+        isOpen={showForm}
+        onClose={() => setShowForm(false)}
+        onSubmit={handleAddAddress}
+        submitting={submitting}
+      />
       
       {/* Dialog de Confirmação */}
       <DialogConfirming

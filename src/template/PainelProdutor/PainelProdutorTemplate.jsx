@@ -117,7 +117,7 @@ export default function PainelProdutorTemplate() {
           </div>
           <Button 
             onClick={() => setShowCadastroModal(true)}
-            className="bg-orange-500 hover:bg-orange-600"
+            className="bg-green-500 hover:bg-green-600"
           >
             <Plus className="w-4 h-4 mr-2" />
             Novo Produto
@@ -174,7 +174,7 @@ export default function PainelProdutorTemplate() {
                 <p className="text-gray-500 mb-6">Comece cadastrando seu primeiro produto</p>
                 <Button 
                   onClick={() => setShowCadastroModal(true)}
-                  className="bg-orange-500 hover:bg-orange-600"
+                  className="bg-green-500 hover:bg-green-600"
                 >
                   <Plus className="w-4 h-4 mr-2" />
                   Cadastrar Primeiro Produto
