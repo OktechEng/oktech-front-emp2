@@ -131,17 +131,9 @@ export function Header() {
 
           {/* Botões visíveis para usuários com role específica */}
           {isAdmin && (
-            <><Button className="bg-green-500">Meus Produtos</Button>
-              <Button className="bg-green-500">Relatórios</Button>
+            <><Button className="bg-green-500">Relatórios</Button>
             </>
           )}
-          {isProductor && (
-            <>
-              <Button className="bg-green-500" onClick={() => router.push("/cadastro-produto")}>Cadastro de Produtos</Button>
-              <Button className="bg-green-500">Meus Produtos</Button>
-            </>
-          )}
-
 
           {/* Se usuário está autenticado, mostra dropdown do perfil */}
           {isAuthenticated ? (
@@ -160,6 +152,12 @@ export function Header() {
                 {role === 'USER' && (
                   <DropdownMenuItem onClick={() => router.push("/cadastro-loja")}>
                     Cadastrar Loja
+                  </DropdownMenuItem>
+                )}
+                {/* Nova opção para produtores */}
+                {isProductor && (
+                  <DropdownMenuItem onClick={() => router.push("/painel-produtor")}>
+                    Gerenciar Produtos
                   </DropdownMenuItem>
                 )}
                 <DropdownMenuItem onClick={handleLogout}>
